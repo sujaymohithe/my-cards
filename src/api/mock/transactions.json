@@ -1,0 +1,69 @@
+{
+  "lkmfkl-mlfkm-dlkfm": [
+    {
+      "id": "lkmlk-5kkm5-55gg",
+      "amount": 123.88,
+      "description": "Food",
+      "type": "debit",
+      "date": "2026-02-15T14:32:00Z"
+    },
+    {
+      "id": "43mm3-lkm4-55gg",
+      "amount": 33.48,
+      "description": "Snack",
+      "type": "debit",
+      "date": "2026-02-15T14:11:00Z"
+    },
+    {
+      "id": "ddlfe-5kkm5-ffee12",
+      "amount": 288.38,
+      "description": "Refund",
+      "type": "credit",
+      "date": "2026-02-12T13:01:00Z"
+    },
+    {
+      "id": "eefe-5kkm5-ffeefe",
+      "amount": 288.38,
+      "description": "Tickets",
+      "type": "debit",
+      "date": "2026-01-11T13:01:00Z"
+    },
+    {
+      "id": "eefe-1q12ws-ffeefe",
+      "amount": 10.20,
+      "description": "Lunch - Sushi",
+      "type": "debit",
+      "date": "2026-01-11T12:01:00Z"
+    }
+  ],
+  "elek-n3lk-4m3lk4": [
+    {
+      "id": "elek-5kkm5-55gg",
+      "amount": 21.88,
+      "description": "Laptop",
+      "type": "debit",
+      "date": "2026-02-16T14:32:00Z"
+    },
+    {
+      "id": "43mm3-lkm4-elek",
+      "amount": 533.48,
+      "description": "Smart Phone",
+      "type": "debit",
+      "date": "2026-02-11T11:11:00Z"
+    },
+    {
+      "id": "eefe-elek-ffeefe",
+      "amount": 2.58,
+      "description": "Taxi",
+      "type": "debit",
+      "date": "2026-01-09T14:11:00Z"
+    },
+    {
+      "id": "ddlfe-5kkm5-sdww23",
+      "amount": 100,
+      "description": "Cashback from Visa",
+      "type": "credit",
+      "date": "2026-01-01T13:01:00Z"
+    }
+  ]
+}

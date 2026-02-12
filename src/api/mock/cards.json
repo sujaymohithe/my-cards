@@ -1,0 +1,31 @@
+[
+  {
+    "id": "lkmfkl-mlfkm-dlkfm",
+    "description": "Private Card",
+    "type": "private",
+    "lastDigits": 8796
+  },
+  {
+    "id": "elek-n3lk-4m3lk4",
+    "description": "Business Card",
+    "type": "business",
+    "lastDigits": 2321
+  },
+  {
+    "id": "acd5f-mlfkm-dlkfm",
+    "description": "Debit Card",
+    "type": "debit",
+    "lastDigits": 1231
+  },
+  {
+    "id": "qwes2-n3lk-4m3lk3",
+    "description": "Credit Card",
+    "type": "credit",
+    "lastDigits": 4434
+  },
+  {
+    "id": "lkmfkl-13fkm-dlkfd",
+    "description": "Travel Card",
+    "type": "travel"
+  }
+]
