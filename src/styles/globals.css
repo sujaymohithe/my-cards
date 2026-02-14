@@ -9,6 +9,21 @@
   --color-error: #ff0000;
   --color-success: #008000;
 
+  /*
+  |--------------------------------------------------------------------------
+  | Custom Breakpoints
+  |--------------------------------------------------------------------------
+  | Replaced Tailwind defaults to align with CardItem (fixed w-88) layout.
+  | Default breakpoints caused premature wrapping, so values were
+  | adjusted to match real viewport constraints (sm = 780px).
+  | Keeps responsive behavior predictable and centralized.
+  | Note - refer useIsSmallerViewport hook
+  */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 48.75rem; /* 780px */
+  --breakpoint-md: 64rem; /* 1024px */
+  --breakpoint-lg: 80rem; /* 1280px */
+
   /* 
   |--------------------------------------------------------------------------
   | Card Background Tokens & Utilities
@@ -44,6 +59,24 @@
 
   :root {
     --container-pad: 1rem;
+  }
+
+  @media (min-width: 48.75rem) {
+    :root {
+      --container-pad: 1rem;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    :root {
+      --container-pad: 6rem;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    :root {
+      --container-pad: 12rem;
+    }
   }
 }
 

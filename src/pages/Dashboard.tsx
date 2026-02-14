@@ -1,4 +1,4 @@
-import { CardList } from "@/components/cards";
+import { CardCarousel } from "@/components/cards";
 import { ErrorBanner, Section } from "@/components/ui";
 import { useCards, useTransactions } from "@/hooks";
 import { useState } from "react";
@@ -58,12 +58,12 @@ export function Dashboard() {
   return (
     <div className="flex flex-1 flex-col space-y-8 overflow-hidden">
       <Section className="shrink-0">
-        <CardList
+        <CardCarousel
           cards={cards}
           onSelect={onSelectCard}
           selectedCardId={selectedCardId}
           loading={loadingCards}
-        ></CardList>
+        ></CardCarousel>
       </Section>
 
       <Section className="shrink-0">Amount FIlter</Section>
