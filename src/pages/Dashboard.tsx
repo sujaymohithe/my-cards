@@ -1,3 +1,4 @@
+import { CardList } from "@/components/cards";
 import { ErrorBanner, Section } from "@/components/ui";
 import { useCards, useTransactions } from "@/hooks";
 import { useState } from "react";
@@ -24,6 +25,10 @@ export function Dashboard() {
     cards.find((card) => card.id === userSelectedCardId) ?? cards[0] ?? null;
   const selectedCardId = selectedCard?.id ?? "";
 
+  const onSelectCard = (id: string) => {
+    setUserSelectedCardId(id);
+  };
+
   const {
     trasactions,
     loading: loadingTransactions,
@@ -40,9 +45,26 @@ export function Dashboard() {
     );
   }
 
+  if (!error && !loadingCards && !cards.length) {
+    return (
+      <div className="container py-12">
+        <div className="text-foreground/70 mx-auto w-full text-center">
+          No cards found
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-1 flex-col space-y-8 overflow-hidden">
-      <Section className="shrink-0">CardList</Section>
+      <Section className="shrink-0">
+        <CardList
+          cards={cards}
+          onSelect={onSelectCard}
+          selectedCardId={selectedCardId}
+          loading={loadingCards}
+        ></CardList>
+      </Section>
 
       <Section className="shrink-0">Amount FIlter</Section>
 

@@ -8,6 +8,30 @@
   --color-foreground: #171717;
   --color-error: #ff0000;
   --color-success: #008000;
+
+  /* 
+  |--------------------------------------------------------------------------
+  | Card Background Tokens & Utilities
+  |--------------------------------------------------------------------------
+  | Each CardType follows this convention:
+  |   CardType:        "credit"
+  |   CSS variable:    --card-credit
+  |   Utility class:   bg-card-credit
+  |
+  | If adding a new CardType:
+  |   1. Add its CSS variable here
+  |   2. Define its @utility below in this file (bg-card-*)
+  |
+  | Used in components as:
+  |   className={`bg-card-${card.type}`}
+  |--------------------------------------------------------------------------
+  */
+  --card-private: #e3f2fd;
+  --card-business: #f1f8e9;
+  --card-debit: #e5e4e2;
+  --card-credit: #fce4ec;
+  --card-travel: #f3e5f5;
+  --card-other: #d3d3d3;
 }
 
 @layer base {
@@ -26,4 +50,28 @@
 @utility container {
   margin-inline: auto;
   padding-inline: var(--container-pad);
+}
+
+@utility bg-card-private {
+  background-color: var(--card-private);
+}
+
+@utility bg-card-business {
+  background-color: var(--card-business);
+}
+
+@utility bg-card-debit {
+  background-color: var(--card-debit);
+}
+
+@utility bg-card-credit {
+  background-color: var(--card-credit);
+}
+
+@utility bg-card-travel {
+  background-color: var(--card-travel);
+}
+
+@utility bg-card-other {
+  background-color: var(--card-other);
 }
