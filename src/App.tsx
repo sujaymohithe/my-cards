@@ -1,5 +1,5 @@
-import { Header } from "./components/header";
-import { Dashboard } from "./pages/Dashboard";
+import { Header } from "@/components/header";
+import { Dashboard } from "@/pages/Dashboard";
 
 /**
  * The main application component.

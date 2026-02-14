@@ -1,5 +1,7 @@
 import { CardCarousel } from "@/components/cards";
+import { TransactionList } from "@/components/transactions";
 import { ErrorBanner, Section } from "@/components/ui";
+import type { CardType } from "@/domain/types";
 import { useCards, useTransactions } from "@/hooks";
 import { useState } from "react";
 
@@ -23,6 +25,7 @@ export function Dashboard() {
 
   const selectedCard =
     cards.find((card) => card.id === userSelectedCardId) ?? cards[0] ?? null;
+  const selectedCardType: CardType = selectedCard?.type ?? "other";
   const selectedCardId = selectedCard?.id ?? "";
 
   const onSelectCard = (id: string) => {
@@ -30,7 +33,7 @@ export function Dashboard() {
   };
 
   const {
-    trasactions,
+    transactions,
     loading: loadingTransactions,
     error: transactionsError,
   } = useTransactions(selectedCardId);
@@ -66,12 +69,14 @@ export function Dashboard() {
         ></CardCarousel>
       </Section>
 
-      <Section className="shrink-0">Amount FIlter</Section>
+      <Section className="shrink-0">Amount Filter</Section>
 
       <Section className="flex flex-1 flex-col overflow-hidden">
-        <div className="flex-1 overflow-y-auto scroll-smooth ">
-          TransactionList
-        </div>
+        <TransactionList
+          transactions={transactions}
+          loading={loadingTransactions}
+          cardType={selectedCardType}
+        />
       </Section>
     </div>
   );

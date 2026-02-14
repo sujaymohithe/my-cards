@@ -18,7 +18,7 @@ interface CardItemProps {
  * @returns A JSX element representing the card item
  */
 export function CardItem({ card, selected, onSelect }: CardItemProps) {
-  const bgClass = `bg-card-${card.type}`; //Tailwind utility
+  const bgClass = `bg-card-${card.type}`; //Custom Tailwind utility
 
   return (
     <Button
