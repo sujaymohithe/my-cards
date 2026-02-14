@@ -1,4 +1,4 @@
-import type { Card, Transaction } from "../domain/types";
+import type { Card, Transaction } from "@/domain/types";
 import { cardsSchema, transactionsByCardIdSchema } from "./schema";
 
 export class ApiClient {

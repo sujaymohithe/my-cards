@@ -6,6 +6,8 @@
   /* Design tokens */
   --color-background: #ffffff;
   --color-foreground: #171717;
+  --color-error: #ff0000;
+  --color-success: #008000;
 }
 
 @layer base {
