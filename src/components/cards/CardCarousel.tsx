@@ -18,12 +18,10 @@ interface CardCarouselProps {
  * The number of cards displayed is determined by the screen size.
  * On mobile, it displays 1 card, while on non-mobile devices, it displays 2 cards.
  * It also provides navigation controls to move between the cards.
- *
+ * Desktop (2-up): [1,2] → [3,4] → [5]
+ * Mobile (1-up): [1] → [2] → [3] → [4] → [5]
  * @param {CardCarouselProps} props - The props for the component
- * @param {Card[]} props.cards - The array of `Card` objects to display
- * @param {string | null} props.selectedCardId - The ID of the selected card
- * @param {(cardId: string) => void} props.onSelect - The function to call when a card is selected
- * @param {boolean} props.loading - Whether the data is being loaded
+ * @returns A JSX element representing the card carousel
  */
 export function CardCarousel({
   cards,
@@ -32,36 +30,44 @@ export function CardCarousel({
   loading,
 }: CardCarouselProps) {
   const isSmallerViewport = useIsSmallerViewport();
-  // Display 1 card on mobile, 2 cards on non-mobile
+  // Show 1 card on mobile, 2 cards on larger screens
   const visibleCount = isSmallerViewport ? 1 : 2;
 
-  const [page, setPage] = useState(0);
-  const pageCount = useMemo(
-    () => Math.max(1, Math.ceil(cards.length / visibleCount)),
-    [cards.length, visibleCount],
-  );
+  // Store the starting index of the current page
+  const [startIndex, setStartIndex] = useState(0);
+  const total = cards.length;
 
-  const safePage = Math.min(page, pageCount - 1);
-  const start = safePage * visibleCount;
+  // Calculate total number of grouped pages - Example (5 cards, 2 per page): ceil(5/2) = 3 pages
+  const pageCount = Math.max(1, Math.ceil(total / visibleCount));
+
+  // The maximum valid starting index for grouped paging
+  // Example (5 cards, 2 per page): starts = 0, 2, 4
+  const maxStart = (pageCount - 1) * visibleCount;
+
+  // Snap startIndex to a valid group boundary (0, 2, 4, ...)
+  const safeStart = Math.min(
+    Math.floor(startIndex / visibleCount) * visibleCount,
+    maxStart,
+  );
 
   const visibleCards = useMemo(
-    () => cards.slice(start, start + visibleCount),
-    [cards, start, visibleCount],
+    () => cards.slice(safeStart, safeStart + visibleCount),
+    [cards, safeStart, visibleCount],
   );
 
-  const canPrev = safePage > 0;
-  const canNext = safePage < pageCount - 1;
+  const canPrev = safeStart > 0;
+  const canNext = safeStart < maxStart;
 
-  const prev = () => setPage((p) => Math.max(0, p - 1));
-  const next = () => setPage((p) => Math.min(pageCount - 1, p + 1));
+  const prev = () => setStartIndex((s) => Math.max(0, s - visibleCount));
 
-  const getPageInfo = () => {
-    const from = start + 1;
-    const to = Math.min(start + visibleCount, cards.length);
+  const next = () => setStartIndex((s) => Math.min(maxStart, s + visibleCount));
 
+  const pageInfo = useMemo(() => {
+    const from = safeStart + 1;
+    const to = Math.min(safeStart + visibleCount, total);
     const range = from === to ? `${from}` : `${from}-${to}`;
-    return `Showing ${range} of ${cards.length}`;
-  };
+    return `Showing ${range} of ${total}`;
+  }, [safeStart, visibleCount, total]);
 
   if (loading) {
     return (
@@ -78,7 +84,7 @@ export function CardCarousel({
         canNext={canNext}
         prev={prev}
         next={next}
-        pageInfo={getPageInfo()}
+        pageInfo={pageInfo}
       />
 
       <div className="grid place-items-center gap-4 sm:grid-cols-2 sm:place-items-start">
