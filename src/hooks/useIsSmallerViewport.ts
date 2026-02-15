@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
 
+const BREAKPOINTS = {
+  sm: 780,
+  md: 1024,
+  lg: 1280,
+};
+
 /**
  * Hook to determine if the viewport is smaller than the given breakpoint.
  *
@@ -9,7 +15,7 @@ import { useState, useEffect } from "react";
  * This ensures JS-driven responsive logic stays aligned with
  * CSS responsive behavior.
  */
-export const useIsSmallerViewport = (breakpoint = 780) => {
+export const useIsSmallerViewport = (breakpoint = BREAKPOINTS.sm) => {
   const [isSmallerViewport, setIsSmallerViewport] = useState(false);
 
   useEffect(() => {
