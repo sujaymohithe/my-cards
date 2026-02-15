@@ -3,9 +3,9 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { CardCarousel } from "@/components/cards";
 import { useIsSmallerViewport } from "@/hooks";
 import type { ComponentProps } from "react";
-import { mockCards } from "../../fixtures/cards";
 import userEvent from "@testing-library/user-event";
 import type { Card } from "@/domain/types";
+import { mockCards } from "@/__tests__/fixtures/cards";
 
 type CardItemProps = { card: Card; selected: boolean; onSelect: () => void };
 type CardNavigationProps = {

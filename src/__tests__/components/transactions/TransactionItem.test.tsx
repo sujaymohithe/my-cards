@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { TransactionItem } from "@/components/transactions";
 import { render, screen } from "@testing-library/react";
-import { mockTransactions } from "../../fixtures/transactions";
+import { mockTransactions } from "@/__tests__/fixtures/transactions";
 
 vi.mock("@/theme", () => ({
   CARD_COLORS: {

@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import { CardItem } from "@/components/cards";
 import type { ComponentProps } from "react";
-import { singleCard, travelCard } from "../../fixtures/cards";
+import { singleCard, travelCard } from "@/__tests__/fixtures/cards";
 
 vi.mock("@/theme", () => ({
   CARD_COLORS: {

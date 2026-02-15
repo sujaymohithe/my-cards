@@ -1,8 +1,8 @@
 import { describe, expect, it, vi } from "vitest";
 import { TransactionList } from "@/components/transactions";
 import { render, screen } from "@testing-library/react";
-import { mockTransactions } from "../../fixtures/transactions";
 import type { CardType, Transaction } from "@/domain/types";
+import { mockTransactions } from "@/__tests__/fixtures/transactions";
 
 type TransactionItemProps = { tx: Transaction; cardType: CardType };
 
