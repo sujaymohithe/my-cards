@@ -1,6 +1,7 @@
 import type { Card } from "@/domain/types";
 import { cn } from "@/lib";
 import { Button } from "@/components/ui";
+import { CARD_COLORS } from "@/theme";
 
 interface CardItemProps {
   card: Card;
@@ -18,7 +19,7 @@ interface CardItemProps {
  * @returns A JSX element representing the card item
  */
 export function CardItem({ card, selected, onSelect }: CardItemProps) {
-  const bgClass = `bg-card-${card.type}`; //Custom Tailwind utility
+  const bgClass = CARD_COLORS[card.type];
 
   return (
     <Button

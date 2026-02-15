@@ -1,6 +1,7 @@
 import type { CardType, Transaction } from "@/domain/types";
 import { TransactionItem } from "./TransactionItem";
 import { cn } from "@/lib";
+import { CARD_COLORS } from "@/theme";
 
 interface TransactionListProps {
   transactions: Transaction[];
@@ -25,7 +26,7 @@ export function TransactionList({
   loading,
   cardType,
 }: TransactionListProps) {
-  const bgClass = `bg-card-${cardType}`; //Custom Tailwind utility
+  const bgClass = CARD_COLORS[cardType];
 
   if (loading) {
     return (

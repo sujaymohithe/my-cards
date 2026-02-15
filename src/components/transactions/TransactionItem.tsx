@@ -1,5 +1,6 @@
 import type { CardType, Transaction } from "@/domain/types";
 import { cn } from "@/lib";
+import { CARD_COLORS } from "@/theme";
 import { formatCurrency } from "@/utils";
 
 interface TransactionItemProps {
@@ -16,7 +17,7 @@ interface TransactionItemProps {
  * @returns A JSX element representing the transaction item
  */
 export function TransactionItem({ tx, cardType }: TransactionItemProps) {
-  const bgClass = `bg-card-${cardType}`; // Custom Tailwind utility
+  const bgClass = CARD_COLORS[cardType];
 
   const formattedAmount = formatCurrency(tx.amount);
   const isCredit = tx.type === "credit";
