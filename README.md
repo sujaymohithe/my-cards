@@ -1,6 +1,6 @@
 # Card & Transactions Overview
 
-This project is a React + TypeScript application displaying a card overview page where a user can:
+This project is a React + TypeScript application displaying a card and transactions overview page where a user can:
 
 - Select one of the available cards
 - View transactions for the selected card
@@ -28,7 +28,7 @@ yarn install
 ## Run the Project
 
 ```
-Run the Project
+yarn dev
 ```
 
 ## Run Tests
@@ -43,6 +43,20 @@ To run once (CI mode):
 yarn test:run
 ```
 
-## Architecture Decisions
+## Functional Requirements Coverage
 
-WIP (todo)
+- User can select one of the cards
+- Transactions of the selected card are displayed
+- Transactions share the same background color as the selected card
+- User can filter transactions by minimum amount
+- Changing selected card resets filter input
+- Responsive layout across screen sizes
+
+
+## Further Documentation
+
+For documentation on:
+- [Architecture](docs/architecture.md)
+- [Data Model](docs/data-model.md)
+- [Technical Decisions](docs/decisions.md)
+- [Future Improvements](docs/future-improvements.md)
