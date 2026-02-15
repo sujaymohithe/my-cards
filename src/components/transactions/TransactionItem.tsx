@@ -28,6 +28,7 @@ export function TransactionItem({ tx, cardType }: TransactionItemProps) {
         "border-foreground/10 flex items-center justify-between rounded-2xl border px-6 py-4",
         bgClass,
       )}
+      data-testid={`transaction-${tx.id}`}
     >
       <div className="flex flex-col space-y-1 text-base font-medium">
         <span>{tx.description}</span>
