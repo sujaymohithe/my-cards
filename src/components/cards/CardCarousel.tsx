@@ -18,8 +18,8 @@ interface CardCarouselProps {
  * The number of cards displayed is determined by the screen size.
  * On mobile, it displays 1 card, while on non-mobile devices, it displays 2 cards.
  * It also provides navigation controls to move between the cards.
- * Desktop (2-up): [1,2] → [3,4] → [5]
- * Mobile (1-up): [1] → [2] → [3] → [4] → [5]
+ * Desktop (2-up): 5 cards, 2 per page [1,2] -> [3,4] -> [5]
+ * Mobile (1-up): 5 cards, 1 per page [1] -> [2] -> [3] -> [4] -> [5]
  * @param {CardCarouselProps} props - The props for the component
  * @returns A JSX element representing the card carousel
  */

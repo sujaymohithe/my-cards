@@ -34,7 +34,8 @@ export function mapErrorToMessage(
   error: unknown,
   fallbackMessage: string,
 ): AppError {
-  // All errors are reported to monitoring tools (e.g. Sentry). Out of scope for this project.
+  // Error handling can be improved further (for example - error messages shown to users, 
+  // all errors reporting to monitoring tools like Sentry etc), but it's out of scope for this project.
 
   // Zod validation error
   if (error instanceof ZodError) {

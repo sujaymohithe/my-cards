@@ -27,7 +27,7 @@ export function formatCurrencyInput(amount: number): string {
 }
 
 /**
- * Parses German locale amount (1.234,56 → 1234.56)
+ * Parses German locale amount (Example 1.234,56 to 1234.56 for filtering with dataset)
  * Returns null if invalid
  *
  * @param {string} amount - The amount to parse
