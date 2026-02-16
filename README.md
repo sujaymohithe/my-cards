@@ -25,6 +25,12 @@ This project uses Yarn.
 yarn install
 ```
 
+## Linting
+
+```
+yarn lint
+```
+
 ## Run the Project
 
 ```
